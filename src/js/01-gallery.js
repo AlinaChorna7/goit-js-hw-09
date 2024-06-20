@@ -91,4 +91,5 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionPosition: 'bottom',
   captionDelay: 250,
   enableKeyboard: true,
+  captionsData: 'number',
 });
