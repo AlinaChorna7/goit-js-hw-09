@@ -85,11 +85,19 @@ const markup = images.map(image => {
 
 gallery.innerHTML = markup;
 
+
 const lightbox = new SimpleLightbox('.gallery a', {
   captions: true,
-  captionsData: 'alt',
   captionPosition: 'bottom',
   captionDelay: 250,
   enableKeyboard: true,
-  captionsData: 'number',
+  captionType: 'attr',
+  captionsData: 'alt',
+  captionClass: '',
+  captionSelector: 'img',
+  captionCallback: function(element) {
+    const caption = element.querySelector('img').getAttribute('alt');
+    const index = element.getAttribute('data-index');
+    return `#${index} - ${caption}`;
+  }
 });
